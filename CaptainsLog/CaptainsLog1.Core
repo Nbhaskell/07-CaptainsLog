@@ -1,0 +1,64 @@
+﻿using System;
+
+public class Account
+{
+    public string Name { get; set; }
+    public string AccountNumber { get; set; }
+
+    private decimal balance { get; set; }
+
+    //accessor
+    public decimal GetBalance()
+    {
+        return balance;
+    }
+
+    //mutator
+    public void Deposit(decimal amount)
+    {
+        if (amount <= 5000)
+        {
+            balance += amount;
+        }
+    }
+
+    public void Withdraw(decimal amount)
+    {
+        if (amount > balance)
+        {
+            throw new Exception("Insufficient funds");
+        }
+        else
+        {
+            if (amount > 5000)
+            {
+                // send an email to somebody (we're being robbed)
+            }
+        }
+
+        balance -= amount;
+    }
+}
+
+public partial class MainWindow : Window
+{
+    public MainWindow()
+    {
+        InitializeComponent();
+    }
+}
+}
+
+public class LogEntry
+{
+    DateTime EntryDate { get; set; }
+    string Title { get; set; }
+    string Text { get; set; }
+
+    string TextPreview
+    {
+        get
+        {
+
+        }
+    }
